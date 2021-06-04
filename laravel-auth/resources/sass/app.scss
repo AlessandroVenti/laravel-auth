@@ -1,0 +1,103 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+@import 'mixin';
+
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: $font-family-sans-serif;
+     list-style-type: none;
+}
+
+.layout {
+     height: $height;
+     display: grid;
+     grid-template-columns: 1fr;
+     grid-template-rows: 100px 1fr 100px;
+     grid-template-areas: 
+          "head"
+          "main"
+          "foot";
+
+     header {
+          background-color: rgb(238, 137, 137);
+          grid-area: head;
+          @include flex; 
+     }
+
+     main {
+          background-color: rgb(145, 145, 238);
+          grid-area: main;
+          @include flex;
+
+          .form {
+               font-size: 20px;
+               flex-basis: 40%;
+           }
+           
+           .form fieldset {
+               padding: 40px;
+               border-radius: 10px;
+               border: 1px solid rgb(197, 197, 197);
+           }
+           
+           .form fieldset legend {
+               padding: 0 20px;
+           }
+           
+           .form input,
+           .form select {
+               width: 100%;
+               margin: 10px 0 20px 0;
+               padding: 10px;
+               border-radius: 10px;
+               border: 0;
+               font-size: 15px;
+               background: #9191ee;
+               box-shadow: inset 5px 5px 10px #7b7bca,
+                           inset -5px -5px 10px #a7a7ff;
+           }
+
+           .form input.submit {
+                box-shadow: 5px 5px 10px #7b7bca,
+                         -5px -5px 10px #a7a7ff;
+           }
+
+           .form input.submit:active {
+               box-shadow: inset 5px 5px 10px #7b7bca,
+                         inset -5px -5px 10px #a7a7ff;
+          }
+           
+           .form .card {
+               margin-bottom: 20px;
+               display: inline-block;
+           }
+           
+           .form select {
+               float: right;
+               background-color: #f0ffff;
+               border: 0;
+               font-size: 18px;
+               box-shadow:  5px 5px 10px #ccd9d9,
+                           -5px -5px 10px #ffffff;
+           }
+           
+           .form h3 {
+               margin: 20px 0;
+           }
+     }
+
+     footer {
+          background-color: rgb(157, 204, 157);
+          grid-area: foot;
+          @include flex;
+     }
+}
