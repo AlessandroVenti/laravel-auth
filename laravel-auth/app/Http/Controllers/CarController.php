@@ -64,4 +64,10 @@ class CarController extends Controller
         $car->pilots()->sync($request->pilots_id);
         return redirect()->route('home2', $car -> id);
     }
+
+    public function deleteFunction($id) {
+        $car = Car::findOrFail($id);
+        $car->delete();
+        return redirect()->route('home2');
+    }
 }

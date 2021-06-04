@@ -11,6 +11,9 @@
                               <a href="{{ route('edit', $car -> id)}}">
                                    &#9998;
                               </a>
+                              <a href="{{ route('delete', $car -> id) }}">
+                                   &#10060;
+                              </a>
                          </summary>
                          <p>
                               <a href="{{ route('pilot', $car -> id) }}">
