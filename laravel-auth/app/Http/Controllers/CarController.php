@@ -10,7 +10,7 @@ use App\Brand;
 class CarController extends Controller
 {
     public function home2Function() {
-        $cars = Car::all();
+        $cars = Car::where('deleted', false)->get();
         return view('pages.home2', compact('cars'));
     }
 
@@ -44,13 +44,6 @@ class CarController extends Controller
         return redirect()->route('home2');
     }
 
-    public function editFunction($id) {
-        $car = Car::findOrFail($id);
-        $brands = Brand::all();
-        $pilots = Pilot::all();
-        return view('pages.edit', compact('car', 'brands', 'pilots'));
-    }
-
     public function updateFunction(Request $request, $id) {
         $validated = $request -> validate([
             'name' => 'required|string',
@@ -63,11 +56,5 @@ class CarController extends Controller
         $car->save();
         $car->pilots()->sync($request->pilots_id);
         return redirect()->route('home2', $car -> id);
-    }
-
-    public function deleteFunction($id) {
-        $car = Car::findOrFail($id);
-        $car->delete();
-        return redirect()->route('home2');
     }
 }
