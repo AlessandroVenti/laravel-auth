@@ -50,4 +50,18 @@ class CarController extends Controller
         $pilots = Pilot::all();
         return view('pages.edit', compact('car', 'brands', 'pilots'));
     }
+
+    public function updateFunction(Request $request, $id) {
+        $validated = $request -> validate([
+            'name' => 'required|string',
+            'model' => 'required|string',
+            'kW' => 'required|integer',
+        ]);
+        $car = Car::findOrFail($id);
+        $car->update($validated);
+        $car->brand()->associate($request -> brand_id);
+        $car->save();
+        $car->pilots()->sync($request->pilots_id);
+        return redirect()->route('home2', $car -> id);
+    }
 }

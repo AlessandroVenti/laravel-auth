@@ -2,7 +2,7 @@
 
 @section('content')
      <main>
-          <form method="POST" class="form" action="{{ route('store') }}">
+          <form method="POST" class="form" action="{{ route('store', $car -> id) }}">
                <fieldset>
                     @csrf
                     @method('POST')

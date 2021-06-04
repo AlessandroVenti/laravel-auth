@@ -33,3 +33,5 @@ Route::post('/create/store', 'CarController@storeFunction')->name('store');
 
 Route::get('/edit/{id}', 'CarController@editFunction')->name('edit');
 
+Route::post('/update/{id}', 'CarController@updateFunction')->name('update');
+
