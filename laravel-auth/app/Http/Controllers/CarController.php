@@ -43,4 +43,11 @@ class CarController extends Controller
         $car->save();
         return redirect()->route('home2');
     }
+
+    public function editFunction($id) {
+        $car = Car::findOrFail($id);
+        $brands = Brand::all();
+        $pilots = Pilot::all();
+        return view('pages.edit', compact('car', 'brands', 'pilots'));
+    }
 }

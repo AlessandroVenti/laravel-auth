@@ -8,6 +8,9 @@
                     <details> 
                          <summary>
                               Car #{{$car -> id}}:  {{ $car -> name}} , {{$car -> model }}
+                              <a href="{{ route('edit', $car -> id)}}">
+                                   &#9998;
+                              </a>
                          </summary>
                          <p>
                               <a href="{{ route('pilot', $car -> id) }}">

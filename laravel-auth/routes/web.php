@@ -31,3 +31,5 @@ Route::get('/create', 'CarController@createFunction')->name('create');
 
 Route::post('/create/store', 'CarController@storeFunction')->name('store');
 
+Route::get('/edit/{id}', 'CarController@editFunction')->name('edit');
+
